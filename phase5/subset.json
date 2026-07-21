@@ -1,0 +1,568 @@
+[
+  {
+    "tokens": [
+      "what",
+      "does",
+      "ua",
+      "mean"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "B-airline_code",
+      "O"
+    ],
+    "intent": "abbreviation"
+  },
+  {
+    "tokens": [
+      "list",
+      "all",
+      "flights",
+      "from",
+      "memphis",
+      "to",
+      "miami"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "tell",
+      "me",
+      "about",
+      "the",
+      "m80",
+      "aircraft"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-aircraft_code",
+      "O"
+    ],
+    "intent": "aircraft"
+  },
+  {
+    "tokens": [
+      "show",
+      "flights",
+      "from",
+      "orlando",
+      "to",
+      "kansas",
+      "city"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "list",
+      "the",
+      "flights",
+      "on",
+      "canadian",
+      "airlines",
+      "international"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-airline_name",
+      "I-airline_name",
+      "I-airline_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "show",
+      "me",
+      "ground",
+      "transportation",
+      "in",
+      "phoenix"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-city_name"
+    ],
+    "intent": "ground_service"
+  },
+  {
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "direct",
+      "flights",
+      "from",
+      "charlotte",
+      "to",
+      "minneapolis",
+      "on",
+      "tuesday",
+      "morning"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-connect",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "O",
+      "B-depart_date.day_name",
+      "B-depart_time.period_of_day"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "flights",
+      "between",
+      "milwaukee",
+      "and",
+      "indiana"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.state_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "please",
+      "list",
+      "the",
+      "flights",
+      "from",
+      "charlotte",
+      "to",
+      "newark"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "list",
+      "fares",
+      "from",
+      "washington",
+      "dc",
+      "to",
+      "toronto",
+      "that",
+      "should",
+      "be",
+      "good"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "B-fromloc.state_code",
+      "O",
+      "B-toloc.city_name",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "intent": "airfare"
+  },
+  {
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "shortest",
+      "flight",
+      "from",
+      "milwaukee",
+      "to",
+      "long",
+      "beach"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-flight_mod",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "list",
+      "all",
+      "flights",
+      "arriving",
+      "in",
+      "denver",
+      "between",
+      "8",
+      "and",
+      "9",
+      "pm"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-toloc.city_name",
+      "O",
+      "B-arrive_time.start_time",
+      "O",
+      "B-arrive_time.end_time",
+      "I-arrive_time.end_time"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "list",
+      "flights",
+      "from",
+      "cincinnati",
+      "to",
+      "tampa",
+      "before",
+      "noon"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "B-depart_time.time_relative",
+      "B-depart_time.period_of_day"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "flights",
+      "between",
+      "dca",
+      "and",
+      "milwaukee"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-airport_code",
+      "O",
+      "B-city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "on",
+      "june",
+      "eighth",
+      "what",
+      "flights",
+      "go",
+      "from",
+      "westchester",
+      "county",
+      "to",
+      "cincinnati"
+    ],
+    "tags": [
+      "O",
+      "B-depart_date.month_name",
+      "B-depart_date.day_number",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "I-fromloc.city_name",
+      "O",
+      "B-toloc.city_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "list",
+      "us",
+      "air",
+      "flights",
+      "leaving",
+      "saturday",
+      "from",
+      "charlotte",
+      "airport",
+      "around",
+      "1",
+      "pm"
+    ],
+    "tags": [
+      "O",
+      "B-airline_name",
+      "I-airline_name",
+      "O",
+      "O",
+      "B-depart_date.day_name",
+      "O",
+      "B-fromloc.airport_name",
+      "I-fromloc.airport_name",
+      "B-depart_time.time_relative",
+      "B-depart_time.time",
+      "I-depart_time.time"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "can",
+      "you",
+      "find",
+      "me",
+      "another",
+      "flight",
+      "from",
+      "cincinnati",
+      "to",
+      "new",
+      "york",
+      "on",
+      "saturday",
+      "before",
+      "6",
+      "pm"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name",
+      "O",
+      "B-depart_date.day_name",
+      "B-depart_time.time_relative",
+      "B-depart_time.time",
+      "I-depart_time.time"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "please",
+      "list",
+      "flights",
+      "from",
+      "st.",
+      "louis",
+      "to",
+      "st.",
+      "paul",
+      "which",
+      "depart",
+      "after",
+      "10",
+      "am",
+      "thursday",
+      "morning"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "I-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name",
+      "O",
+      "O",
+      "B-depart_time.time_relative",
+      "B-depart_time.time",
+      "I-depart_time.time",
+      "B-depart_date.day_name",
+      "B-depart_time.period_of_day"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "please",
+      "find",
+      "a",
+      "flight",
+      "round",
+      "trip",
+      "from",
+      "los",
+      "angeles",
+      "to",
+      "tacoma",
+      "washington",
+      "with",
+      "a",
+      "stopover",
+      "in",
+      "san",
+      "francisco",
+      "not",
+      "exceeding",
+      "the",
+      "price",
+      "of",
+      "300",
+      "dollars",
+      "for",
+      "june",
+      "tenth",
+      "1993"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-round_trip",
+      "I-round_trip",
+      "O",
+      "B-fromloc.city_name",
+      "I-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "B-toloc.state_name",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-stoploc.city_name",
+      "I-stoploc.city_name",
+      "B-cost_relative",
+      "I-cost_relative",
+      "O",
+      "O",
+      "O",
+      "B-fare_amount",
+      "I-fare_amount",
+      "O",
+      "B-depart_date.month_name",
+      "B-depart_date.day_number",
+      "B-depart_date.year"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "give",
+      "me",
+      "the",
+      "saturday",
+      "morning",
+      "flights",
+      "from",
+      "chicago",
+      "to",
+      "st.",
+      "paul",
+      "on",
+      "continental",
+      "that",
+      "have",
+      "meals"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "B-depart_date.day_name",
+      "B-depart_time.period_of_day",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name",
+      "O",
+      "B-airline_name",
+      "O",
+      "O",
+      "B-meal"
+    ],
+    "intent": "flight"
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "flights",
+      "from",
+      "love",
+      "field"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.airport_name",
+      "I-fromloc.airport_name"
+    ],
+    "intent": "flight"
+  },
+  {
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "costs",
+      "of",
+      "car",
+      "rental",
+      "in",
+      "dallas"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-transport_type",
+      "I-transport_type",
+      "O",
+      "B-city_name"
+    ],
+    "intent": "ground_fare"
+  },
+  {
+    "tokens": [
+      "list",
+      "all",
+      "flights",
+      "from",
+      "new",
+      "york",
+      "to",
+      "las",
+      "vegas",
+      "that",
+      "fly",
+      "nonstop",
+      "on",
+      "sunday",
+      "and",
+      "list",
+      "flights",
+      "from",
+      "memphis",
+      "to",
+      "las",
+      "vegas",
+      "that",
+      "fly",
+      "nonstop",
+      "on",
+      "sunday"
+    ],
+    "tags": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "I-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name",
+      "O",
+      "O",
+      "B-flight_stop",
+      "O",
+      "B-depart_date.day_name",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-fromloc.city_name",
+      "O",
+      "B-toloc.city_name",
+      "I-toloc.city_name",
+      "O",
+      "O",
+      "B-flight_stop",
+      "O",
+      "B-depart_date.day_name"
+    ],
+    "intent": "flight"
+  }
+]

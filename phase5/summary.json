@@ -1,0 +1,112 @@
+{
+  "subset": {
+    "n_samples": 20,
+    "length_bins": {
+      "short": 6,
+      "medium": 10,
+      "long": 4
+    },
+    "n_intent_classes": 5,
+    "intents": {
+      "abbreviation": 1,
+      "flight": 16,
+      "aircraft": 1,
+      "ground_service": 1,
+      "airfare": 1
+    },
+    "n_distinct_entity_types": 36,
+    "entity_type_counts": {
+      "B-fromloc.city_name": 13,
+      "B-toloc.city_name": 13,
+      "I-toloc.city_name": 5,
+      "B-depart_date.day_name": 5,
+      "B-depart_time.period_of_day": 4,
+      "B-depart_time.time_relative": 4,
+      "B-airline_name": 3,
+      "I-airline_name": 3,
+      "I-fromloc.city_name": 3,
+      "B-depart_time.time": 3,
+      "I-depart_time.time": 3,
+      "B-city_name": 2,
+      "B-toloc.state_name": 2,
+      "B-depart_date.month_name": 2,
+      "B-depart_date.day_number": 2,
+      "B-airline_code": 1,
+      "B-aircraft_code": 1,
+      "B-connect": 1,
+      "B-fromloc.state_code": 1,
+      "B-flight_mod": 1,
+      "B-arrive_time.start_time": 1,
+      "B-arrive_time.end_time": 1,
+      "I-arrive_time.end_time": 1,
+      "B-airport_code": 1,
+      "B-fromloc.airport_name": 1,
+      "I-fromloc.airport_name": 1,
+      "B-round_trip": 1,
+      "I-round_trip": 1,
+      "B-stoploc.city_name": 1,
+      "I-stoploc.city_name": 1,
+      "B-cost_relative": 1,
+      "I-cost_relative": 1,
+      "B-fare_amount": 1,
+      "I-fare_amount": 1,
+      "B-depart_date.year": 1,
+      "B-meal": 1
+    }
+  },
+  "metrics": {
+    "bert": {
+      "accuracy": 0.971830985915493,
+      "precision_macro": 0.8373015873015873,
+      "recall_macro": 0.8240740740740741,
+      "f1_macro": 0.8261806780325297,
+      "f1_micro": 0.9264705882352942,
+      "n_samples": 20
+    },
+    "qwen3-vl-4b-instruct::zero": {
+      "accuracy": 0.45539906103286387,
+      "precision_macro": 0.05526315789473685,
+      "recall_macro": 0.03491902834008097,
+      "f1_macro": 0.03913043478260869,
+      "f1_micro": 0.05000000000000001,
+      "n_samples": 20
+    },
+    "qwen3-vl-4b-instruct::few": {
+      "accuracy": 0.5164319248826291,
+      "precision_macro": 0.08095238095238096,
+      "recall_macro": 0.06556776556776556,
+      "f1_macro": 0.07085714285714285,
+      "f1_micro": 0.14285714285714288,
+      "n_samples": 20
+    }
+  },
+  "config": {
+    "models_requested": [
+      "qwen3-vl-4b-instruct"
+    ],
+    "n_samples": 20,
+    "k_fewshot": 3
+  },
+  "subset_indices_in_test": [
+    326,
+    205,
+    779,
+    431,
+    162,
+    585,
+    122,
+    375,
+    851,
+    439,
+    344,
+    786,
+    650,
+    380,
+    143,
+    250,
+    860,
+    219,
+    874,
+    678
+  ]
+}
