@@ -20,7 +20,7 @@ cache2/
 
 # Saved model checkpoints
 checkpoints/
-runs/
+
 *.pt
 *.pth
 *.bin
