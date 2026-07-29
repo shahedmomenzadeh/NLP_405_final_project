@@ -181,33 +181,53 @@ def plot_f1_bar(results: List[Dict], out_path: Path) -> None:
     plt.close(fig)
 
 
-def plot_per_class_f1(report: Dict[str, Dict[str, float]], out_path: Path, top_n: int = 25) -> None:
-    """Per-class F1 of the best config, sorted by support. Excludes O."""
+def plot_per_class_f1(report: Dict[str, Dict[str, float]], out_path: Path, top_n: int = 10, bottom_n: int = 10) -> None:
+    """Per-class F1 of the best config: top N by support (blue) vs bottom N by F1 (red)."""
+    import matplotlib.patches as mpatches
     classes = [(name, m) for name, m in report.items() if name not in ("_", "O", "PAD", "X")]
-    classes = sorted(classes, key=lambda x: x[1]["support"], reverse=True)
     if not classes:
         return
-    # Take top_n by support, then sort alphabetically for display
-    top = sorted(classes[:top_n], key=lambda x: x[0])
-    names = [c[0] for c in top]
-    f1s = [c[1]["f1"] for c in top]
-    supports = [int(c[1]["support"]) for c in top]
 
-    fig, ax = plt.subplots(figsize=(11, 0.32 * len(names) + 1.5))
+    # Top N by support
+    sorted_by_support = sorted(classes, key=lambda x: x[1]["support"], reverse=True)
+    top_classes = sorted_by_support[:top_n]
+
+    # Bottom N by F1 score (excluding any already in top_classes)
+    top_names = {c[0] for c in top_classes}
+    remaining = [c for c in classes if c[0] not in top_names]
+    sorted_by_f1_asc = sorted(remaining, key=lambda x: (x[1]["f1"], x[1]["support"]))
+    bottom_classes = sorted_by_f1_asc[:bottom_n]
+
+    combined = top_classes + bottom_classes
+
+    names = [c[0] for c in combined]
+    f1s = [c[1]["f1"] for c in combined]
+    supports = [int(c[1]["support"]) for c in combined]
+    colors = ["steelblue" if i < len(top_classes) else "crimson" for i in range(len(combined))]
+
+    fig, ax = plt.subplots(figsize=(11, 0.35 * len(names) + 1.5))
     y = range(len(names))
-    bars = ax.barh(y, f1s, color="steelblue", alpha=0.85)
+    bars = ax.barh(y, f1s, color=colors, alpha=0.85)
     for bar, supp in zip(bars, supports):
-        ax.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height() / 2,
-                f"  n={supp}", va="center", fontsize=7)
+        ax.text(max(0.01, bar.get_width() + 0.01), bar.get_y() + bar.get_height() / 2,
+                f"  n={supp}", va="center", fontsize=8)
+
     ax.set_yticks(list(y))
-    ax.set_yticklabels(names, fontsize=8)
-    ax.set_xlabel("F1-score")
-    ax.set_xlim(0, 1.1)
-    ax.set_title(f"Per-class F1 (top {top_n} by support, excluding O)")
+    ax.set_yticklabels(names, fontsize=8.5)
+    ax.set_xlabel("F1-score", fontsize=10)
+    ax.set_xlim(0, 1.15)
+    ax.set_title(f"Per-Class F1 Score: Top {len(top_classes)} by Support (Blue) vs Lowest {len(bottom_classes)} by F1 (Red)", fontsize=10, fontweight="bold")
     ax.grid(True, axis="x", alpha=0.3)
+    ax.invert_yaxis()
+
+    blue_patch = mpatches.Patch(color="steelblue", label=f"Top {len(top_classes)} High-Support Slots")
+    red_patch = mpatches.Patch(color="crimson", label=f"Lowest {len(bottom_classes)} Low-F1 Slots")
+    ax.legend(handles=[blue_patch, red_patch], loc="lower right", fontsize=8.5)
+
     fig.tight_layout()
     fig.savefig(out_path, dpi=120)
     plt.close(fig)
+
 
 
 def write_report_md(
@@ -385,9 +405,9 @@ def main() -> int:
     plot_f1_bar(results, RUNS_DIR / "test_f1_bar.png")
     print(f"Wrote {RUNS_DIR / 'test_f1_bar.png'}")
 
-    # 4. Per-class F1 of the best config
+    # 4. Per-class F1 of the best config (Top 10 High Support vs Bottom 10 Low F1)
     if best_report:
-        plot_per_class_f1(best_report, RUNS_DIR / "per_class_f1.png", top_n=25)
+        plot_per_class_f1(best_report, RUNS_DIR / "per_class_f1.png", top_n=10, bottom_n=10)
         print(f"Wrote {RUNS_DIR / 'per_class_f1.png'}")
 
     # 5. Consolidated markdown report

@@ -291,11 +291,11 @@ The table and chart below compare the performance of the fine-tuned BERT baselin
 ## 6. Qualitative Error & Failure Mode Analysis
 
 ### 6.1 Class Imbalance & Data Sparsity
-The ATIS slot distribution is heavily skewed toward a small set of high-frequency spatial and temporal slots. The plot below illustrates per-class F1 scores achieved by the best fine-tuned model (`bilstm_h256_l1`) across the top 25 slot types sorted by test support:
+The ATIS slot distribution is heavily skewed toward a small set of high-frequency spatial and temporal slots. The plot below illustrates per-class F1 scores achieved by the best fine-tuned model (`bilstm_h256_l1`), comparing the **Top 10 highest-support slots** (blue) against the **Lowest 10 F1-scoring slots** (red):
 
-![Per-Class F1 Performance Plot — Top 25 Slots by Support (Best Model: bilstm_h256_l1)](runs/per_class_f1.png)
+![Per-Class F1 Performance Plot — Top 10 High-Support (Blue) vs Lowest 10 Low-F1 Slots (Red)](runs/per_class_f1.png)
 
-*The horizontal bar chart above shows the F1-score for the top 25 slot categories (by test set occurrence count, annotated as `n=...` at the end of each bar), excluding the Outside (`O`) class. Bars are sorted alphabetically for readability. High-support classes such as `fromloc.city_name`, `toloc.city_name`, and `depart_date.day_name` achieve near-perfect F1, while singleton categories (`booking_class`, `compartment`, `economy`) score near zero.*
+*The horizontal bar chart above compares F1-scores for the Top 10 most frequent slot categories in blue against the 10 lowest-scoring slot categories in red (annotated with sample occurrences $n=...$ at the end of each bar). High-support classes such as `fromloc.city_name` and `toloc.city_name` achieve near-perfect F1, while rare singleton categories (`booking_class`, `compartment`, `flight`, `meal_code`, `return_date.day_name`, `stoploc.airport_code`) suffer from severe data sparsity and score near zero ($\text{F1} = 0.00$).*
 
 #### Performance Breakdown by Support Volume:
 1. **High-Support Core Slots ($N > 100$)**:
